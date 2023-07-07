@@ -16,16 +16,19 @@ export class NavbarComponent {
   aboutUs = [
     {
       title: 'company',
-      route: ''
+      route: '',
+      banner: 'aboutTop'
     },
       {
       title: 'case studies',
-      route: ''
+      route: 'case-study',
+      banner: 'aboutCsTop'
     },
     
       {
       title: 'investor relations',
-      route: ''
+      route: 'investor-relations',
+      banner: 'aboutIrTop'
     },
   ]
 
