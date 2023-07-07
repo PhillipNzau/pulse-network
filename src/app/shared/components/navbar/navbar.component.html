@@ -1,1 +1,75 @@
-<p>navbar works!</p>
+<div class="absolute right-0">
+  <img [src]="topBar" alt="top banner" />
+</div>
+<nav
+  class="flex flex-col md:flex-row items-center justify-between md:px-36 md:pt-28"
+>
+  <a [routerLink]="'/'" (click)="topBar = homeTop">
+    <img
+      src="../../../../assets/imgs/logo-1.png"
+      alt="Pulse Logo"
+      class="md:w-60 md:h-20"
+    />
+    <!-- <p class="">Pulse</p> -->
+  </a>
+  <ul class="flex items-center gap-7 text-neutral-500 font-bold">
+    <li
+      class="hover:cursor-pointer"
+      [routerLink]="'/'"
+      (click)="topBar = homeTop"
+    >
+      <a>Home</a>
+    </li>
+
+    <li
+      [routerLinkActive]="'border-b-white'"
+      id="dropdownDefaultButton"
+      class="transition-all duration-300 hover:cursor-pointer"
+    >
+      <a class="peer py-2 hover:cursor-pointer">About US</a>
+      <!-- the menu here -->
+      <div
+        class="hidden absolute rounded-md mt-0 md:-ml-8 peer-hover:flex hover:flex w-full md:w-[240px] flex-col bg-white border-zinc-200 text-neutral-500 divide-y-[1px] drop-shadow py-6 px-2"
+      >
+        <a
+          *ngFor="let item of aboutUs"
+          [routerLink]="'services/' + item.route"
+          class="px-1 py-3 hover:bg-zinc-100 capitalize border-b border-b-zinc-200"
+          >{{ item.title }}</a
+        >
+      </div>
+    </li>
+
+    <li
+      class="hover:cursor-pointer"
+      [routerLink]="'solutions'"
+      (click)="topBar = aboutCsTop"
+    >
+      <a>Solutions</a>
+    </li>
+
+    <li
+      class="hover:cursor-pointer"
+      [routerLink]="'shop'"
+      (click)="topBar = shopTop"
+    >
+      <a>Shop</a>
+    </li>
+
+    <li
+      class="hover:cursor-pointer"
+      [routerLink]="'contact'"
+      (click)="topBar = aboutCsTop"
+    >
+      <a>Contact</a>
+    </li>
+
+    <li
+      class="hover:cursor-pointer"
+      [routerLink]=""
+      class="px-8 py-3 rounded-full bg-yellow-500"
+    >
+      <a>Login</a>
+    </li>
+  </ul>
+</nav>
