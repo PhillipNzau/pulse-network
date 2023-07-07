@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
+  @Output() myMenu = new EventEmitter();
+
   homeTop = '../../../../assets/imgs/home-top.png'
   aboutCsTop = '../../../../assets/imgs/about-cs-top.png'
   aboutIrTop = '../../../../assets/imgs/about-ir-top.png'
@@ -12,6 +15,7 @@ export class NavbarComponent {
   shopTop = '../../../../assets/imgs/shop-top.png'
 
   topBar:string = this.homeTop
+  isMenuOpen = false;
 
   aboutUs = [
     {
@@ -32,4 +36,8 @@ export class NavbarComponent {
     },
   ]
 
+  toggleMenu() {
+   this.isMenuOpen = !this.isMenuOpen;
+   this.myMenu.emit();
+  }
 }
