@@ -1,1 +1,60 @@
-<p>contact works!</p>
+<section
+  id="contact"
+  class="flex flex-col items center justify-between gap-6 py-8 px-6 md:flex-row lg:px-72 md:px-36"
+>
+  <div class="flex flex-col gap-4 text-neutral-500">
+    <h1 class="md:w-[536px] font-bold text-2xl md:text-4xl">
+      Thank you for your interest in Pulse Networks Please fill out the form and
+      a team member will be in touch.
+    </h1>
+    <p>support@pulse.ke</p>
+    <p>Nairobi, Kenya</p>
+  </div>
+
+  <div class="md:w-[536px]">
+    <!-- Contact Form -->
+    <form class="flex flex-col gap-2.5">
+      <input
+        class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
+        type="text"
+        name="fullName"
+        id="fullName"
+        placeholder="Full name"
+      />
+      <input
+        class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
+        type="text"
+        name="subject"
+        id="subject"
+        placeholder="Subject"
+      />
+      <input
+        class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+      />
+      <input
+        class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
+        type="text"
+        name="number"
+        id="number"
+        placeholder="Phone Number"
+      />
+      <textarea
+        class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
+        name="message"
+        id="message"
+        rows="5"
+        placeholder="How can we help you?"
+      ></textarea>
+
+      <button
+        class="w-full bg-blue-900 rounded-full text-white py-4 mt-2 md:mt-6"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</section>
