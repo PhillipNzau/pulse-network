@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
+  {path: 'auth', component: AuthComponent},
   {path:'', loadComponent:() => import('./pages/home/home.component').then(mod=> mod.HomeComponent)},
   {path:'about', loadChildren:() => import('./pages/about/about.routes').then(mod=> mod.ABOUT_ROUTES)},
   {path:'contact', loadComponent:() => import('./pages/contact/contact.component').then(mod=> mod.ContactComponent)},
