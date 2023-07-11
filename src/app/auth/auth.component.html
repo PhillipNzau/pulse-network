@@ -1,38 +1,192 @@
-<ng-container>
-  <div class="w-screen flex items-start">
-    <div class="bg-white w-1/2">
-      <img src="../../assets/imgs/logo-1.png" alt="Pulse logo" />
-      <p>Log In</p>
+<ng-container *ngIf="login; else signIn">
+  <div
+    class="py-20 md:py-0 w-screen flex items-center justify-between flex-wrap md:flex-nowrap gap-6"
+  >
+    <div
+      class="bg-white md:w-[500px] mx-auto flex flex-col items-center justify-center"
+    >
+      <img
+        class="w-40 mb-8"
+        src="../../assets/imgs/logo-1.png"
+        alt="Pulse logo"
+      />
+      <p class="text-neutral-500 font-bold text-xl md:text-2xl md:mb-16">
+        Log In
+      </p>
 
-      <form>
+      <form class="space-y-4 w-full">
         <input
           type="text"
           name="name"
-          class="border border-slate-400 p-4 rounded-xl w-full font-bold appearance-none outline-none mt-4"
+          placeholder="Email"
+          class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
         />
-        <div class="flex items-center bg-gray-50">
+        <div
+          class="flex items-center justify-between rounded-xl bg-gray-50 p-4"
+        >
           <input
             [type]="show ? 'text' : 'password'"
-            name="Cpassword"
+            name="password"
             placeholder="Please enter your password"
-            class="p-4 bg-transparent rounded-xl w-full font-bold appearance-none outline-none mt-4"
+            class="bg-transparent appearance-none outline-none"
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            style="fill: rgba(0, 0, 0, 1); transform: ; msfilter: "
-          >
-            <path
-              d="M12 4.998c-1.836 0-3.356.389-4.617.971L3.707 2.293 2.293 3.707l3.315 3.316c-2.613 1.952-3.543 4.618-3.557 4.66l-.105.316.105.316C2.073 12.382 4.367 19 12 19c1.835 0 3.354-.389 4.615-.971l3.678 3.678 1.414-1.414-3.317-3.317c2.614-1.952 3.545-4.618 3.559-4.66l.105-.316-.105-.316c-.022-.068-2.316-6.686-9.949-6.686zM4.074 12c.103-.236.274-.586.521-.989l5.867 5.867C6.249 16.23 4.523 13.035 4.074 12zm9.247 4.907-7.48-7.481a8.138 8.138 0 0 1 1.188-.982l8.055 8.054a8.835 8.835 0 0 1-1.763.409zm3.648-1.352-1.541-1.541c.354-.596.572-1.28.572-2.015 0-.474-.099-.924-.255-1.349A.983.983 0 0 1 15 11a1 1 0 0 1-1-1c0-.439.288-.802.682-.936A3.97 3.97 0 0 0 12 7.999c-.735 0-1.419.218-2.015.572l-1.07-1.07A9.292 9.292 0 0 1 12 6.998c5.351 0 7.425 3.847 7.926 5a8.573 8.573 0 0 1-2.957 3.557z"
-            ></path>
-          </svg>
+          <ng-container *ngIf="show; else hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              class="w-6 h-6 stroke-neutral-500 hover:cursor-pointer"
+              (click)="togglePwd()"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </ng-container>
+
+          <ng-template #hidden>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              class="w-6 h-6 stroke-neutral-500 hover:cursor-pointer"
+              (click)="togglePwd()"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+              />
+            </svg>
+          </ng-template>
         </div>
+        <p class="text-end text-neutral-500 text-sm">Forgot password?</p>
+        <div
+          class="text-center bg-blue-900 text-white rounded-full w-full py-4"
+          (click)="toggleAcc()"
+        >
+          Log in
+        </div>
+        <p class="text-center text-neutral-500 text-sm">
+          Don't have an account yet?
+          <span class="underline hover:cursor-pointer" (click)="toggleAcc()"
+            >Sign up</span
+          >
+        </p>
       </form>
     </div>
-    <div class="bg-blue-900 w-1/2">
+    <div class="bg-blue-900 hidden md:block md:w-1/2">
       <img src="../../assets/imgs/bulb-or.svg" alt="Illustration with bulb" />
     </div>
   </div>
 </ng-container>
+<ng-template #signIn>
+  <div
+    class="py-20 md:py-0 w-screen flex items-center justify-between flex-wrap md:flex-nowrap gap-6"
+  >
+    <div
+      class="bg-white md:w-[500px] mx-auto flex flex-col items-center justify-center"
+    >
+      <img
+        class="w-40 mb-8"
+        src="../../assets/imgs/logo-1.png"
+        alt="Pulse logo"
+      />
+      <p class="text-neutral-500 font-bold text-xl md:text-2xl md:mb-16">
+        Create Your Account
+      </p>
+
+      <form class="space-y-4 w-full">
+        <input
+          type="text"
+          name="name"
+          placeholder="Email"
+          class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+        />
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+        />
+        <div
+          class="flex items-center justify-between rounded-xl bg-gray-50 p-4"
+        >
+          <input
+            [type]="show ? 'text' : 'password'"
+            name="password"
+            placeholder="Please enter your password"
+            class="bg-transparent appearance-none outline-none"
+          />
+          <ng-container *ngIf="show; else hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              class="w-6 h-6 stroke-neutral-500 hover:cursor-pointer"
+              (click)="togglePwd()"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </ng-container>
+
+          <ng-template #hidden>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              class="w-6 h-6 stroke-neutral-500 hover:cursor-pointer"
+              (click)="togglePwd()"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+              />
+            </svg>
+          </ng-template>
+        </div>
+        <select
+          class="bg-gray-50 p-4 text-neutral-400 rounded-xl w-full appearance-nones outline-none mt-4"
+        >
+          <option disabled selected>Choose Country</option>
+          <option>Kenya</option>
+          <option>South Africa</option>
+        </select>
+        <div
+          class="text-center bg-blue-900 text-white rounded-full w-full py-4"
+          (click)="toggleAcc()"
+        >
+          Sign up
+        </div>
+        <p class="text-center text-neutral-500 text-sm" (click)="toggleAcc()">
+          Already have an account?
+          <span class="underline hover:cursor-pointer">Log in</span>
+        </p>
+      </form>
+    </div>
+    <div class="bg-blue-900 hidden md:block md:w-1/2">
+      <img src="../../assets/imgs/bulb-or.svg" alt="Illustration with bulb" />
+    </div>
+  </div>
+</ng-template>

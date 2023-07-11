@@ -8,4 +8,13 @@ import { Component } from '@angular/core';
 export class AuthComponent {
   isSignUp:boolean = false;
   show:boolean = false;
+  login:boolean = false;
+
+  togglePwd() {
+    this.show = !this.show
+  }
+
+  toggleAcc() {
+    this.login = !this.login
+  }
 }
