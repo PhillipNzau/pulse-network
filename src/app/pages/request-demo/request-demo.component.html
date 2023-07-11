@@ -1,1 +1,71 @@
-<p>request-demo works!</p>
+<div
+  class="py-20 md:py-0 h-full w-screen flex items-center justify-between flex-wrap md:flex-nowrap gap-x-6"
+>
+  <div
+    class="bg-blue-900 flex items-center md:px-64 md:min-h-screen md:w-1/2"
+    style="background-image: url('../../../assets/imgs/demo-request.webp')"
+  >
+    <p class="text-white font-bold text-2xl md:text-4xl">
+      Submit the following form and our team will be in touch with you shortly.
+      Alternatively, you can contact us via email through our support email
+      <span class="underline underline-offset-8">support@pulse.ke</span> or
+      request a quote email
+      <span class="underline underline-offset-8">sales@pulse.ke</span>
+    </p>
+  </div>
+  <div
+    class="bg-white md:w-[500px] mx-auto flex flex-col items-center justify-center"
+  >
+    <form class="space-y-4 w-full">
+      <input
+        type="text"
+        name="email"
+        placeholder="Email"
+        class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+      />
+      <input
+        type="text"
+        name="name"
+        placeholder="First Name"
+        class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+      />
+      <input
+        type="text"
+        name="name"
+        placeholder="Last Name"
+        class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+      />
+      <input
+        type="text"
+        name="name"
+        placeholder="Company"
+        class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+      />
+      <input
+        type="text"
+        name="phone"
+        placeholder="Phone Number"
+        class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+      />
+      <textarea
+        name="message"
+        id=""
+        cols="30"
+        rows="10"
+        class="bg-gray-50 p-4 rounded-xl w-full appearance-none outline-none mt-4"
+        placeholder="Message"
+      ></textarea>
+
+      <select
+        class="bg-gray-50 p-4 text-neutral-400 rounded-xl w-full appearance-nones outline-none mt-4"
+      >
+        <option disabled selected>Choose Country</option>
+        <option>Kenya</option>
+        <option>South Africa</option>
+      </select>
+      <div class="text-center bg-blue-900 text-white rounded-full w-full py-4">
+        Submit
+      </div>
+    </form>
+  </div>
+</div>

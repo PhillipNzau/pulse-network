@@ -9,4 +9,6 @@ export class AppComponent {
   isMenuOpen:boolean = false;
 
   title = 'pulse-network';
+
+  loggedIn:boolean = false;
 }

@@ -1,4 +1,4 @@
-<app-navbar (myMenu)="isMenuOpen = !isMenuOpen"></app-navbar>
+<app-navbar *ngIf="loggedIn" (myMenu)="isMenuOpen = !isMenuOpen"></app-navbar>
 <section [ngClass]="{ hidden: isMenuOpen }">
   <router-outlet></router-outlet>
   <app-footer></app-footer>
