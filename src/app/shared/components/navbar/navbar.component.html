@@ -84,8 +84,9 @@
 
     <li
       class="hover:cursor-pointer"
-      [routerLink]=""
-      class="px-8 py-3 rounded-full bg-yellow-500"
+      [routerLink]="'auth'"
+      class="px-8 py-3 rounded-full bg-yellow-500 hover:cursor-pointer"
+      (click)="toggleLogin()"
     >
       <a>Login</a>
     </li>
@@ -156,7 +157,7 @@
   <li
     class="hover:cursor-pointer"
     [routerLink]="'auth'"
-    class="px-8 py-3 rounded-full bg-yellow-500 text-blue-900"
+    class="px-8 py-3 rounded-full bg-yellow-500 text-blue-900 hover:cursor-pointer"
     (click)="toggleMenu()"
   >
     <a>Login</a>

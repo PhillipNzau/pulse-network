@@ -7,6 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class NavbarComponent {
 
   @Output() myMenu = new EventEmitter();
+  @Output() loginUser = new EventEmitter();
 
   homeTop = '../../../../assets/imgs/home-top.png'
   aboutCsTop = '../../../../assets/imgs/about-cs-top.png'
@@ -39,5 +40,9 @@ export class NavbarComponent {
   toggleMenu() {
    this.isMenuOpen = !this.isMenuOpen;
    this.myMenu.emit();
+  }
+
+  toggleLogin() {
+    this.loginUser.emit()
   }
 }
