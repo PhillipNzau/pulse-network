@@ -9,5 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent {
+  isSelected:boolean = false;
 
+  selectItem() {
+    this.isSelected = !this.isSelected
+  }
 }
