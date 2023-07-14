@@ -4,12 +4,7 @@ import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
-  {path:'', loadComponent:() => import('./pages/home/home.component').then(mod=> mod.HomeComponent)},
-  {path:'about', loadChildren:() => import('./pages/about/about.routes').then(mod=> mod.ABOUT_ROUTES)},
-  {path:'contact', loadComponent:() => import('./pages/contact/contact.component').then(mod=> mod.ContactComponent)},
-  {path:'demo', loadComponent:() => import('./pages/request-demo/request-demo.component').then(mod=> mod.RequestDemoComponent)},
-  {path:'solutions', loadComponent:() => import('./pages/solutions/solutions.component').then(mod=> mod.SolutionsComponent)},
-  {path:'shop', loadComponent:() => import('./pages/shop/shop.component').then(mod=> mod.ShopComponent)},
+  {path: '', loadChildren:() => import('./pages/page.routes').then(mod => mod.PAGES_ROUTES)}
 
 ];
 

@@ -1,0 +1,5 @@
+<app-navbar (myMenu)="isMenuOpen = !isMenuOpen"></app-navbar>
+<section [ngClass]="{ hidden: isMenuOpen }">
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</section>
