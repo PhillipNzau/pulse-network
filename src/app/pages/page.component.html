@@ -1,5 +1,7 @@
-<app-navbar (myMenu)="isMenuOpen = !isMenuOpen"></app-navbar>
-<section [ngClass]="{ hidden: isMenuOpen }">
+<div class="md:absolute md:w-full">
+  <app-navbar (myMenu)="isMenuOpen = !isMenuOpen"></app-navbar>
+</div>
+<section class="md:pt-72" [ngClass]="{ hidden: isMenuOpen }">
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 </section>
