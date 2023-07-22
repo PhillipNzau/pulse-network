@@ -13,44 +13,57 @@
 
   <div class="md:w-[536px]">
     <!-- Contact Form -->
-    <form class="flex flex-col gap-2.5">
+    <form class="flex flex-col gap-2.5" [formGroup]="emailForm">
+      <div
+        class="bg-green-400 rounded-xl py-4 text-white text-center font-bold"
+        *ngIf="showSuccToaster"
+      >
+        <span class="message">Email sent successfully!</span>
+      </div>
+      <div
+        class="bg-red-400 rounded-xl py-4 text-white text-center font-bold"
+        *ngIf="showErrToaster"
+      >
+        <span class="message">Problem sending email!</span>
+      </div>
       <input
         class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
         type="text"
-        name="fullName"
+        formControlName="from_name"
         id="fullName"
         placeholder="Full name"
       />
       <input
         class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
         type="text"
-        name="subject"
+        formControlName="subject"
         id="subject"
         placeholder="Subject"
       />
       <input
         class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
         type="email"
-        name="email"
+        formControlName="email"
         id="email"
         placeholder="Email"
       />
       <input
         class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
         type="text"
-        name="number"
+        formControlName="phone_number"
         id="number"
         placeholder="Phone Number"
       />
       <textarea
         class="bg-gray-50 text-slate-600 rounded-lg py-3 px-2 text-base"
-        name="message"
+        formControlName="message"
         id="message"
         rows="5"
         placeholder="How can we help you?"
       ></textarea>
 
       <button
+        (click)="sendEmail()"
         class="w-full bg-blue-900 rounded-full text-white py-4 mt-2 md:mt-6"
       >
         Submit

@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   constructor(private route: ActivatedRoute){}
   ngOnInit(): void {
     this.checkIfIsLogIn()
-    console.log('Active route segment:', this.loggedIn);
   }
 
   checkIfIsLogIn() {
